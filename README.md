@@ -73,7 +73,7 @@ If instead of using Python 3.7 in `env` I wanted to use Python 3.6, I would do t
 
 ## Windows - ??
 
-<Need to figure out and add commands>
+To do: figure out and add commands
 
 # Example Usage
 
