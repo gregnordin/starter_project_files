@@ -45,12 +45,13 @@ I have Anaconda python installed on my laptop. My base conda environment uses Py
     $ rm -rf .git
     $ git init
 
-    # Create virtual environment based on where I have Python 3.7 installed (i.e., the `py37` conda environment)
+    # Activate conda environment `p37` where Python 3.7 is installed. Doing so means that when I use `venv` to create
+    # a local virtual environment, it will pull from Python 3.7 and therefore be a Python 3.7 local virtual environment.
     $ source activate py37
     (py37)
     $ python -m venv env   # `env` is the name I have chosen for my virtual environment and its corresponding directory
 
-    # Deactivate the conda environment, otherwise `pip install` will install packages into it instead of `env`
+    # Deactivate the conda environment, otherwise using `pip install` will install packages into it instead of `env`
     $ conda deactivate
 
     # Activate new virtual environment
@@ -66,11 +67,11 @@ I have Anaconda python installed on my laptop. My base conda environment uses Py
 
     # Now I am all set to work in the new virtual environment
 
-    # To get out of the virtual environment when done I am working in it do the the following
+    # To get out of the virtual environment when I am done working in it do the the following
     (env)
     $ deactivate
 
-If instead of using Python 3.7 in `env` I wanted to use Python 3.6, I would do the same as above except eliminate the commands `source activate py37` and `conda deactivate`. Likewise, if I had some other python version in another conda environment, say <conda_env>, on which I would like to base my virtual environment, I would activate that conda environment in place of `py37` above, i.e., `source activate <conda_env>` and then create the virtual environment, `env`.
+If instead of using Python 3.7 in `env` I wanted to use Python 3.6, I would do the same as above except eliminate the commands `source activate py37` and `conda deactivate`. Likewise, if I had some other python version in another conda environment, say <conda_env>, on which I would like to base my local virtual environment, I would activate that conda environment in place of `py37` above, i.e., `source activate <conda_env>` and then create the virtual environment, `env`.
 
 ## Windows - ??
 
