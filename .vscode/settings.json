@@ -1,0 +1,15 @@
+{
+  "python.formatting.provider": "black",
+  "python.formatting.blackArgs": ["--line-length=90"],
+  "editor.formatOnSave": true,
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/*.pyc": true,
+    "**/__pycache__": true
+  },
+  "python.pythonPath": "./env/bin/python"
+}

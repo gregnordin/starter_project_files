@@ -8,3 +8,5 @@ lastfailed
 *.png
 *.stl
 *.zip
+env/
+name.egg-info/
