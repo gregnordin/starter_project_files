@@ -4,12 +4,12 @@ Modified from [https://github.com/crwilcox/my-pypi-package](crwilcox/my-pypi-pac
 
 ## Modifications:
 
-- Use `venv` instead of `virtualenv` to create virtual environment
-- Add `black` and `pylint` to required packages in `setup.py`
+- Use `venv` instead of `virtualenv` to create virtual environment.
+- Add `black` and `pylint` to required packages in `setup.py`.
 - Use `pip install -e .` after virtual environment is set up so that local package being developed is in develop mode and can be dynamically changed without having to re-install. This command also installs all required packages spectified in `setup.py` (rather than using a `requirements.txt` file).
-- Add `.vscode/settings.json` and set to use `black` on file save and the local virtual environment
-- Add `.gitignore` with appropriate settings, including ignoring the local virtual envronment files in `./env/`
-- Delete `noxfile.py` since I don't use this
+- Add `.vscode/settings.json` and set to (1) use `black` on file save and (2) use the local virtual environment.
+- Add `.gitignore` with appropriate settings, including ignoring the local virtual envronment files in `./env/`.
+- Delete `noxfile.py` since I don't use this.
 
 ## Organization
 
@@ -33,23 +33,47 @@ Another good resource is [Chris Wilcox - Shipping your first Python package and 
 
 Python >= 3.5
 
-## Mac/Linux
+## Mac
 
-```
-python -m venv <your-env>
-source <your-env>/bin/activate
-pip install -e .            # Note: this will install all packages specified in setup.py in the activated virtual environment
-pip install <some_package>  # Install additional packages
-```
+I have Anaconda python installed on my laptop. My base conda environment uses Python 3.6. I have also have a conda environment, `py37`, that has Python 3.7 installed. To use Python 3.7 in the virtual environment created with this project, I would do the following.
+
+    # Get starter project
+    $ git clone https://github.com/gregnordin/starter_project_files.git
+
+    # Rename directory to whatever I want and `cd` into it. For example:
+    $ mv starter_project_files/ myproject/
+    $ cd myproject
+
+    # Create virtual environment based on where I have Python 3.7 installed (i.e., the `py37` conda environment)
+    $ source activate py37
+    (py37)
+    $ python -m venv env   # `env` is the name I have chosen for my virtual environment and its corresponding directory
+
+    # Deactivate the conda environment, otherwise `pip install` will install packages into it instead of `env`
+    $ conda deactivate
+
+    # Activate new virtual environment
+    $ source env/bin/activate
+
+    # Install packages specified in setup.py
+    (env)
+    $ pip install -e .
+
+    # Install any other desired packages using the following pattern
+    (env)
+    $ pip install <some_package>
+
+    # Now I am all set to work in the new virtual environment
+
+    # To get out of the virtual environment when done I am working in it do the the following
+    (env)
+    $ deactivate
+
+If instead of using Python 3.7 in `env` I wanted to use Python 3.6, I would do the same as above except eliminate the commands `source activate py37` and `conda deactivate`. Likewise, if I had some other python version in another conda environment, say <conda_env>, on which I would like to base my virtual environment, I would activate that conda environment in place of `py37` above, i.e., `source activate <conda_env>` and then create the virtual environment, `env`.
 
 ## Windows - ??
 
-```
-#python -m venv <your-env>
-#<your-env>\Scripts\activate
-#<your-env>\Scripts\pip.exe install google-cloud-firestore
-#pip install <some_package> (?)
-```
+<Need to figure out and add commands>
 
 # Example Usage
 
