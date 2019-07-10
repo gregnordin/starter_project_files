@@ -37,12 +37,13 @@ Python >= 3.5
 
 I have Anaconda python installed on my laptop. My base conda environment uses Python 3.6. I have also have a conda environment, `py37`, that has Python 3.7 installed. To use Python 3.7 in the virtual environment created with this project, I would do the following.
 
-    # Get starter project
-    $ git clone https://github.com/gregnordin/starter_project_files.git
+    # Get starter project and name it `myproject`
+    $ git clone https://github.com/gregnordin/starter_project_files.git myproject
 
-    # Rename directory to whatever I want and `cd` into it. For example:
-    $ mv starter_project_files/ myproject/
+    # `cd` into directory and re-initialize git so I can start fresh
     $ cd myproject
+    $ rm -rf .git
+    $ git init
 
     # Create virtual environment based on where I have Python 3.7 installed (i.e., the `py37` conda environment)
     $ source activate py37
