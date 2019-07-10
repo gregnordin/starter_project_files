@@ -1,0 +1,10 @@
+__pycache__
+*.pyc
+.ipynb_checkpoints
+lastfailed
+~$*.pptx
+.pytest_cache
+.coverage
+*.png
+*.stl
+*.zip
