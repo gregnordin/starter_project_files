@@ -10,3 +10,4 @@ lastfailed
 *.zip
 env/
 *.egg-info/
+nohup.out

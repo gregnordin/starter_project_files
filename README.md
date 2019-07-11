@@ -100,6 +100,8 @@ Sometimes during development I want to re-build my virtual environment. These ar
 
 ### How to use Jupyter Lab (similar for Jupyter Notebooks)
 
+#### Set up environment to use it as a jupyter kernel
+
     # with virtual environment activated:
     (env)
     $ python -m ipykernel install --user --name=<newpackage>
@@ -119,13 +121,32 @@ Sometimes during development I want to re-build my virtual environment. These ar
     Available kernels:
     3d_print_job_preparation    /Users/nordin/Library/Jupyter/kernels/3d_print_job_preparation
     javascript                  /Users/nordin/Library/Jupyter/kernels/javascript
-    <newpackage>                   /Users/nordin/Library/Jupyter/kernels/mypackage
+    <newpackage>                /Users/nordin/Library/Jupyter/kernels/mypackage
     python3                     /Users/nordin/Library/Jupyter/kernels/python3
     python2                     /usr/local/share/jupyter/kernels/python2
+
+#### Start jupyterlab (regular)
 
     # Start jupyterlab
     (env)
     $ jupyter lab
+
+#### Start jupyterlab (background)
+
+    # Start jupyterlab in the background so the terminal remains free to use
+    (env)
+    $ nohup jupyter lab &
+
+    # Kill jupyterlab that's running in the background
+    $ jupyter notebook list
+        Currently running servers:
+        http://localhost:8888/?token=blah :: /Users/nordin/Documents/Projects/Python/190709_starter_project_files
+    # Note the port jupyter is running on (8888). Use this to find the PID of the jupyter process
+    $ lsof -n -i4TCP:8888
+        COMMAND     PID   USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME
+        python3.7 38870 nordin    8u  IPv4 0xb27f89b37e23f69b      0t0  TCP 127.0.0.1:ddi-tcp-1 (LISTEN)
+    # Now kill the jupyter process
+    $ kill 38870
 
 ## Windows - ??
 
