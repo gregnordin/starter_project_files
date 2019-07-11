@@ -6,6 +6,7 @@ Modified from [https://github.com/crwilcox/my-pypi-package](crwilcox/my-pypi-pac
 
 - Use `venv` instead of `virtualenv` to create virtual environment.
 - Add `black` and `pylint` to required packages in `setup.py`.
+- Add my usually needed packages (`numpy`, `matplotlib`, `jupyterlab`, `ipykernel`) to `setup.py`
 - Use `pip install -e .` after virtual environment is set up so that local package being developed is in develop mode and can be dynamically changed without having to re-install. This command also installs all required packages spectified in `setup.py` (rather than using a `requirements.txt` file).
 - Add `.vscode/settings.json` and set to (1) use `black` on file save and (2) use the local virtual environment.
 - Add `.gitignore` with appropriate settings, including ignoring the local virtual envronment files in `./env/`.
@@ -54,29 +55,31 @@ I have Anaconda python installed on my laptop. My base conda environment uses Py
 
     # 5. Manually edit `.gitignore` and change `myproject.egg-info/` to `<newproject>.egg-info/`
 
-    # 6. Activate conda environment `p37` where Python 3.7 is installed. Doing so means that when I use `venv` to create
+    # 6. Manually edit `README.md` to reflect the purpose of <newproject>
+
+    # 7. Activate conda environment `p37` where Python 3.7 is installed. Doing so means that when I use `venv` to create
     # a local virtual environment, it will pull from Python 3.7 and therefore be a Python 3.7 local virtual environment.
     $ source activate py37
     (py37)
     $ python -m venv env   # `env` is the name I have chosen for my virtual environment and its corresponding directory
 
-    # 7. Deactivate the conda environment, otherwise using `pip install` will install packages into it instead of `env`
+    # 8. Deactivate the conda environment, otherwise using `pip install` will install packages into it instead of `env`
     $ conda deactivate
 
-    # 8. Activate new virtual environment
+    # 9. Activate new virtual environment
     $ source env/bin/activate
 
-    # 9. Install packages specified in setup.py
+    # 10. Install packages specified in setup.py
     (env)
     $ pip install -e .
 
-    # 10. Install any other desired packages using the following pattern
+    # 11. Install any other desired packages using the following pattern
     (env)
     $ pip install <some_package>
 
-    # 11. Now I am all set to work in the new virtual environment
+    # 12. Now I am all set to work in the new virtual environment
 
-    # 12. To get out of the virtual environment when I am done working in it do the the following
+    # 13. To get out of the virtual environment when I am done working in it do the the following
     (env)
     $ deactivate
 
@@ -95,7 +98,7 @@ Sometimes during development I want to re-build my virtual environment. These ar
     # Delete egg-info
     $ rm -rf  *.egg-info
 
-    # Start at Step 6 above and re-install virtual environment
+    # Start at Step 7 above and re-install virtual environment
 
 ## Windows - ??
 
@@ -104,6 +107,6 @@ To do: figure out and add commands
 # Example Usage
 
 ```
-import mypackage
-mypackage.MyPackage().spam()
+import <newpackage>
+<newpackage>.MyPackage().spam()
 ```
