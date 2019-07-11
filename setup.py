@@ -13,11 +13,11 @@ setuptools.setup(
     author="Greg Nordin",
     author_email="nordin@byu.edu",
     install_requires=[
-        "black", 
-        "pylint", 
-        "numpy", 
-        "matplotlib", 
-        "jupyterlab", 
+        "black",
+        "pylint",
+        "numpy",
+        "matplotlib",
+        "jupyterlab",
         "ipykernel",
     ],
 )

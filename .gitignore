@@ -9,4 +9,4 @@ lastfailed
 *.stl
 *.zip
 env/
-myproject.egg-info/
+*.egg-info/

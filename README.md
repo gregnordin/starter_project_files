@@ -53,33 +53,31 @@ I have Anaconda python installed on my laptop. My base conda environment uses Py
 
     # 4. Manually edit `startup.py`, minimally changing name and description in setuptools.setup
 
-    # 5. Manually edit `.gitignore` and change `myproject.egg-info/` to `<newproject>.egg-info/`
+    # 5. Manually edit `README.md` to reflect the purpose of <newproject>
 
-    # 6. Manually edit `README.md` to reflect the purpose of <newproject>
-
-    # 7. Activate conda environment `p37` where Python 3.7 is installed. Doing so means that when I use `venv` to create
+    # 6. Activate conda environment `p37` where Python 3.7 is installed. Doing so means that when I use `venv` to create
     # a local virtual environment, it will pull from Python 3.7 and therefore be a Python 3.7 local virtual environment.
     $ source activate py37
     (py37)
     $ python -m venv env   # `env` is the name I have chosen for my virtual environment and its corresponding directory
 
-    # 8. Deactivate the conda environment, otherwise using `pip install` will install packages into it instead of `env`
+    # 7. Deactivate the conda environment, otherwise using `pip install` will install packages into it instead of `env`
     $ conda deactivate
 
-    # 9. Activate new virtual environment
+    # 8. Activate new virtual environment
     $ source env/bin/activate
 
-    # 10. Install packages specified in setup.py
+    # 9. Install packages specified in setup.py
     (env)
     $ pip install -e .
 
-    # 11. Install any other desired packages using the following pattern
+    # 10. Install any other desired packages using the following pattern
     (env)
     $ pip install <some_package>
 
-    # 12. Now I am all set to work in the new virtual environment
+    # 11. Now I am all set to work in the new virtual environment
 
-    # 13. To get out of the virtual environment when I am done working in it do the the following
+    # 12. To get out of the virtual environment when I am done working in it do the the following
     (env)
     $ deactivate
 
@@ -98,7 +96,36 @@ Sometimes during development I want to re-build my virtual environment. These ar
     # Delete egg-info
     $ rm -rf  *.egg-info
 
-    # Start at Step 7 above and re-install virtual environment
+    # Start at Step 6 above and re-install virtual environment
+
+### How to use Jupyter Lab (similar for Jupyter Notebooks)
+
+    # with virtual environment activated:
+    (env)
+    $ python -m ipykernel install --user --name=<newpackage>
+
+    # Before executing this command:
+    (env)
+    $ jupyter kernelspec list
+    Available kernels:
+    3d_print_job_preparation    /Users/nordin/Library/Jupyter/kernels/3d_print_job_preparation
+    javascript                  /Users/nordin/Library/Jupyter/kernels/javascript
+    python3                     /Users/nordin/Library/Jupyter/kernels/python3
+    python2                     /usr/local/share/jupyter/kernels/python2
+
+    # After executing this command:
+    (env)
+    $ jupyter kernelspec list
+    Available kernels:
+    3d_print_job_preparation    /Users/nordin/Library/Jupyter/kernels/3d_print_job_preparation
+    javascript                  /Users/nordin/Library/Jupyter/kernels/javascript
+    <newpackage>                   /Users/nordin/Library/Jupyter/kernels/mypackage
+    python3                     /Users/nordin/Library/Jupyter/kernels/python3
+    python2                     /usr/local/share/jupyter/kernels/python2
+
+    # Start jupyterlab
+    (env)
+    $ jupyter lab
 
 ## Windows - ??
 
