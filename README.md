@@ -39,44 +39,44 @@ Python >= 3.5
 
 I have Anaconda python installed on my laptop. My base conda environment uses Python 3.6. I have also have a conda environment, `py37`, that has Python 3.7 installed. To use Python 3.7 in the virtual environment created with this project, I would do the following.
 
-    # Get starter project and name it <newproject>
+    # 1. Get starter project and name it <newproject>
     $ git clone https://github.com/gregnordin/starter_project_files.git <newproject>
 
-    # `cd` into directory and re-initialize git so I can start fresh
+    # 2. `cd` into directory and re-initialize git so I can start fresh
     $ cd <newproject>
     $ rm -rf .git
     $ git init
 
-    # Rename directory `myproject` to `<newproject>` so that I have the desired package name
+    # 3. Rename directory `myproject` to `<newproject>` so that I have the desired package name
     $ mv myproject/ <newproject>/
 
-    # Manually edit `startup.py`, minimally changing name and description in setuptools.setup
+    # 4. Manually edit `startup.py`, minimally changing name and description in setuptools.setup
 
-    # Manually edit `.gitignore` and change `myproject.egg-info/` to `<newproject>.egg-info/`
+    # 5. Manually edit `.gitignore` and change `myproject.egg-info/` to `<newproject>.egg-info/`
 
-    # Activate conda environment `p37` where Python 3.7 is installed. Doing so means that when I use `venv` to create
+    # 6. Activate conda environment `p37` where Python 3.7 is installed. Doing so means that when I use `venv` to create
     # a local virtual environment, it will pull from Python 3.7 and therefore be a Python 3.7 local virtual environment.
     $ source activate py37
     (py37)
     $ python -m venv env   # `env` is the name I have chosen for my virtual environment and its corresponding directory
 
-    # Deactivate the conda environment, otherwise using `pip install` will install packages into it instead of `env`
+    # 7. Deactivate the conda environment, otherwise using `pip install` will install packages into it instead of `env`
     $ conda deactivate
 
-    # Activate new virtual environment
+    # 8. Activate new virtual environment
     $ source env/bin/activate
 
-    # Install packages specified in setup.py
+    # 9. Install packages specified in setup.py
     (env)
     $ pip install -e .
 
-    # Install any other desired packages using the following pattern
+    # 10. Install any other desired packages using the following pattern
     (env)
     $ pip install <some_package>
 
-    # Now I am all set to work in the new virtual environment
+    # 11. Now I am all set to work in the new virtual environment
 
-    # To get out of the virtual environment when I am done working in it do the the following
+    # 12. To get out of the virtual environment when I am done working in it do the the following
     (env)
     $ deactivate
 
@@ -85,6 +85,17 @@ If instead of using Python 3.7 in `env` I wanted to use Python 3.6, I would do t
 ### Re-build virtual environment
 
 Sometimes during development I want to re-build my virtual environment. These are the steps I follow.
+
+    # Make sure the virtual environment is deactivated
+    $ deactivate
+
+    # Delete virtual environment
+    $ rm -rf env
+
+    # Delete egg-info
+    $ rm -rf  *.egg-info
+
+    # Start at Step 6 above and re-install virtual environment
 
 ## Windows - ??
 
