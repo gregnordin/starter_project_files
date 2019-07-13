@@ -148,6 +148,10 @@ Sometimes during development I want to re-build my virtual environment. These ar
     # Now kill the jupyter process
     $ kill 38870
 
+### Remove jupyter kernel
+
+    $ jupyter kernelspec uninstall <kernel_to_uninstall>
+
 ## Windows - ??
 
 To do: figure out and add commands
