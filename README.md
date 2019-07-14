@@ -166,6 +166,8 @@ Sometimes during development I want to re-build my virtual environment. These ar
     (env)
     $ jupyter contrib nbextension install --sys-prefix
 
+In the last command, `--sys-prefix` is the critical part to get the extensions installed locally in the virtual environment.
+
 ## Windows - ??
 
 To do: figure out and add commands
