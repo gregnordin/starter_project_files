@@ -152,6 +152,20 @@ Sometimes during development I want to re-build my virtual environment. These ar
 
     $ jupyter kernelspec uninstall <kernel_to_uninstall>
 
+### Use TOC with jupyterlab
+
+    (env)
+    $ jupyter labextension install @jupyterlab/toc
+
+### Use jupyter_contrib_nbextensions with jupyter notebooks
+
+    Only works with `jupyter notebook`, not 'jupyter lab`
+
+    (env)
+    $ pip install jupyter_contrib_nbextensions
+    (env)
+    $ jupyter contrib nbextension install --sys-prefix
+
 ## Windows - ??
 
 To do: figure out and add commands
