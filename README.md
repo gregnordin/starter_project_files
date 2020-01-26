@@ -59,7 +59,8 @@ I have Anaconda python installed on my laptop. My base conda environment uses Py
     # a local virtual environment, it will pull from Python 3.7 and therefore be a Python 3.7 local virtual environment.
     $ source activate py37
     (py37)
-    $ python -m venv env   # `env` is the name I have chosen for my virtual environment and its corresponding directory
+    $ python -m venv .venv --prompt <text for prompt>
+    # `.venv` is the my virtual environment and <text for prompt> will appear above my cursor when I activate it
 
     # 7. Deactivate the conda environment, otherwise using `pip install` will install packages into it instead of `env`
     $ conda deactivate
