@@ -9,5 +9,6 @@ lastfailed
 *.stl
 *.zip
 env/
+.venv/
 *.egg-info/
 nohup.out

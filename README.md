@@ -1,16 +1,15 @@
 # Purpose
 
-Modified from [https://github.com/crwilcox/my-pypi-package](crwilcox/my-pypi-package) to be a starter project suitable for how I tend to code, rather than a starting point for creating a package intended for upload to PyPi as in crwilcox's repository.
+Starter project suitable for how I tend to develop project code.
 
-## Modifications:
+## Features:
 
-- Use `venv` instead of `virtualenv` to create virtual environment.
+- Use built in `venv` to create virtual environment.
 - Add `black` and `pylint` to required packages in `setup.py`.
 - Add my usually needed packages (`numpy`, `matplotlib`, `jupyterlab`, `ipykernel`) to `setup.py`
 - Use `pip install -e .` after virtual environment is set up so that local package being developed is in develop mode and can be dynamically changed without having to re-install. This command also installs all required packages spectified in `setup.py` (rather than using a `requirements.txt` file).
 - Add `.vscode/settings.json` and set to (1) use `black` on file save and (2) use the local virtual environment.
-- Add `.gitignore` with appropriate settings, including ignoring the local virtual envronment files in `./env/`.
-- Delete `noxfile.py` since I don't use this.
+- Add `.gitignore` with appropriate settings, including ignoring the local virtual envronment files in `env/`.
 
 ## Organization
 
