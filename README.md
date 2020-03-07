@@ -37,7 +37,7 @@ Python >= 3.5
 
 ### Install
 
-I have Anaconda python installed on my laptop. My base conda environment uses Python 3.6. I have also have a conda environment, `py37`, that has Python 3.7 installed. To use Python 3.7 in the virtual environment created with this project, I would do the following.
+I have Anaconda python installed on my laptop. My base conda environment uses Python 3.6. I also have a conda environment, `py37`, that has Python 3.7 installed. To use Python 3.7 in the virtual environment created with this project, I would do the following.
 
     # 1. Get starter project and name it <newproject>
     $ git clone https://github.com/gregnordin/starter_project_files.git <newproject>
@@ -50,38 +50,38 @@ I have Anaconda python installed on my laptop. My base conda environment uses Py
     # 3. Rename directory `myproject` to `<newproject>` so that I have the desired package name
     $ mv myproject/ <newproject>/
 
-    # 4. Manually edit `startup.py`, minimally changing name and description in setuptools.setup
+    # 4. Manually edit `startup.py`. At a minimum, name and description should be changed in setuptools.setup.
 
-    # 5. Manually edit `README.md` to reflect the purpose of <newproject>
+    # 5. Manually edit `README.md` to reflect the purpose of <newproject>.
 
     # 6. Activate conda environment `p37` where Python 3.7 is installed. Doing so means that when I use `venv` to create
     # a local virtual environment, it will pull from Python 3.7 and therefore be a Python 3.7 local virtual environment.
     $ source activate py37
     (py37)
     $ python -m venv .venv --prompt <text for prompt>
-    # `.venv` is the my virtual environment and <text for prompt> will appear above my cursor when I activate it
+    # `.venv` is the my virtual environment and <text for prompt> will appear above each command line after the virtual environment is activated
 
     # 7. Deactivate the conda environment, otherwise using `pip install` will install packages into it instead of `env`
     $ conda deactivate
 
     # 8. Activate new virtual environment
-    $ source env/bin/activate
+    $ source .venv/bin/activate
 
     # 9. Install packages specified in setup.py
-    (env)
+    (<text for prompt>)
     $ pip install -e .
 
     # 10. Install any other desired packages using the following pattern
-    (env)
+    (<text for prompt>)
     $ pip install <some_package>
 
     # 11. Now I am all set to work in the new virtual environment
 
     # 12. To get out of the virtual environment when I am done working in it do the the following
-    (env)
+    (<text for prompt>)
     $ deactivate
 
-If instead of using Python 3.7 in `env` I wanted to use Python 3.6, I would do the same as above except eliminate the commands `source activate py37` and `conda deactivate`. Likewise, if I had some other python version in another conda environment, say <conda_env>, on which I would like to base my local virtual environment, I would activate that conda environment in place of `py37` above, i.e., `source activate <conda_env>` and then create the virtual environment, `env`.
+If instead of using Python 3.7 in `.venv` I wanted to use Python 3.6, I would do the same as above except eliminate the commands `source activate py37` and `conda deactivate`. Likewise, if I had some other python version in another conda environment, say <conda_env>, on which I would like to base my local virtual environment, I would activate that conda environment in place of `py37` above, i.e., `source activate <conda_env>` and then create the virtual environment, `.venv`.
 
 ### Re-build virtual environment
 
@@ -91,7 +91,7 @@ Sometimes during development I want to re-build my virtual environment. These ar
     $ deactivate
 
     # Delete virtual environment
-    $ rm -rf env
+    $ rm -rf .venv
 
     # Delete egg-info
     $ rm -rf  *.egg-info
@@ -103,11 +103,11 @@ Sometimes during development I want to re-build my virtual environment. These ar
 #### Set up environment to use it as a jupyter kernel
 
     # with virtual environment activated:
-    (env)
+    (<text for prompt>)
     $ python -m ipykernel install --user --name=<newpackage>
 
     # Before executing this command:
-    (env)
+    (<text for prompt>)
     $ jupyter kernelspec list
     Available kernels:
     3d_print_job_preparation    /Users/nordin/Library/Jupyter/kernels/3d_print_job_preparation
@@ -116,7 +116,7 @@ Sometimes during development I want to re-build my virtual environment. These ar
     python2                     /usr/local/share/jupyter/kernels/python2
 
     # After executing this command:
-    (env)
+    (<text for prompt>)
     $ jupyter kernelspec list
     Available kernels:
     3d_print_job_preparation    /Users/nordin/Library/Jupyter/kernels/3d_print_job_preparation
@@ -128,13 +128,13 @@ Sometimes during development I want to re-build my virtual environment. These ar
 #### Start jupyterlab (regular)
 
     # Start jupyterlab
-    (env)
+    (<text for prompt>)
     $ jupyter lab
 
 #### Start jupyterlab (background)
 
     # Start jupyterlab in the background so the terminal remains free to use
-    (env)
+    (<text for prompt>)
     $ nohup jupyter lab &
 
     # Kill jupyterlab that's running in the background
@@ -154,16 +154,16 @@ Sometimes during development I want to re-build my virtual environment. These ar
 
 ### Use TOC with jupyterlab
 
-    (env)
+    (<text for prompt>)
     $ jupyter labextension install @jupyterlab/toc
 
 ### Use jupyter_contrib_nbextensions with jupyter notebooks
 
     Only works with `jupyter notebook`, not 'jupyter lab`
 
-    (env)
+    (<text for prompt>)
     $ pip install jupyter_contrib_nbextensions
-    (env)
+    (<text for prompt>)
     $ jupyter contrib nbextension install --sys-prefix
 
 In the last command, `--sys-prefix` is the critical part to get the extensions installed locally in the virtual environment.
