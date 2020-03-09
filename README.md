@@ -100,6 +100,8 @@ Sometimes during development I want to re-build my virtual environment. These ar
 
 ### How to use Jupyter Lab (similar for Jupyter Notebooks)
 
+See [Install kernel for different environments](https://ipython.readthedocs.io/en/latest/install/kernel_install.html#kernels-for-different-environments).
+
 #### Set up environment to use it as a jupyter kernel
 
     # with virtual environment activated:
