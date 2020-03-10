@@ -4,12 +4,12 @@ Starter project suitable for how I tend to develop project code.
 
 ## Features:
 
-- Use built in `venv` to create virtual environment.
+- Use built in `venv` to create virtual environment in `.venv` directory.
 - Add `black` and `pylint` to required packages in `setup.py`.
 - Add my usually needed packages (`numpy`, `matplotlib`, `jupyterlab`, `ipykernel`) to `setup.py`
 - Use `pip install -e .` after virtual environment is set up so that local package being developed is in develop mode and can be dynamically changed without having to re-install. This command also installs all required packages spectified in `setup.py` (rather than using a `requirements.txt` file).
 - Add `.vscode/settings.json` and set to (1) use `black` on file save and (2) use the local virtual environment.
-- Add `.gitignore` with appropriate settings, including ignoring the local virtual envronment files in `env/`.
+- Add `.gitignore` with appropriate settings, including ignoring the local virtual envronment files in `.venv/`.
 
 ## Organization
 
@@ -37,7 +37,7 @@ Python >= 3.5
 
 ### Install
 
-I have Anaconda python installed on my laptop. My base conda environment uses Python 3.6. I also have a conda environment, `py37`, that has Python 3.7 installed. To use Python 3.7 in the virtual environment created with this project, I would do the following.
+I have set up python on my macbook pro according to https://github.com/gregnordin/python_setup_macbook. For the following I want the virtual environment to be based on a conda environment, `py37`, that has Python 3.7 installed.
 
     # 1. Get starter project and name it <newproject>
     $ git clone https://github.com/gregnordin/starter_project_files.git <newproject>
@@ -59,9 +59,9 @@ I have Anaconda python installed on my laptop. My base conda environment uses Py
     $ source activate py37
     (py37)
     $ python -m venv .venv --prompt <text for prompt>
-    # `.venv` is the my virtual environment and <text for prompt> will appear above each command line after the virtual environment is activated
+    # `.venv` is the my virtual environment directory and <text for prompt> will appear above each command line after the virtual environment is activated
 
-    # 7. Deactivate the conda environment, otherwise using `pip install` will install packages into it instead of `env`
+    # 7. Deactivate the conda environment, otherwise using `pip install` will install packages into it instead of `.venv`
     $ conda deactivate
 
     # 8. Activate new virtual environment
@@ -81,7 +81,7 @@ I have Anaconda python installed on my laptop. My base conda environment uses Py
     (<text for prompt>)
     $ deactivate
 
-If instead of using Python 3.7 in `.venv` I wanted to use Python 3.6, I would do the same as above except eliminate the commands `source activate py37` and `conda deactivate`. Likewise, if I had some other python version in another conda environment, say <conda_env>, on which I would like to base my local virtual environment, I would activate that conda environment in place of `py37` above, i.e., `source activate <conda_env>` and then create the virtual environment, `.venv`.
+If instead of using Python 3.7 in `.venv` I wanted to use some other python version in another conda environment, say <conda_env>, on which I would like to base my local virtual environment, I would activate that conda environment in place of `py37` above, i.e., `source activate <conda_env>` and then create the virtual environment.
 
 ### Re-build virtual environment
 
@@ -100,75 +100,7 @@ Sometimes during development I want to re-build my virtual environment. These ar
 
 ### How to use Jupyter Lab (similar for Jupyter Notebooks)
 
-See [Install kernel for different environments](https://ipython.readthedocs.io/en/latest/install/kernel_install.html#kernels-for-different-environments).
-
-#### Set up environment to use it as a jupyter kernel
-
-    # with virtual environment activated:
-    (<text for prompt>)
-    $ python -m ipykernel install --user --name=<newpackage>
-
-    # Before executing this command:
-    (<text for prompt>)
-    $ jupyter kernelspec list
-    Available kernels:
-    3d_print_job_preparation    /Users/nordin/Library/Jupyter/kernels/3d_print_job_preparation
-    javascript                  /Users/nordin/Library/Jupyter/kernels/javascript
-    python3                     /Users/nordin/Library/Jupyter/kernels/python3
-    python2                     /usr/local/share/jupyter/kernels/python2
-
-    # After executing this command:
-    (<text for prompt>)
-    $ jupyter kernelspec list
-    Available kernels:
-    3d_print_job_preparation    /Users/nordin/Library/Jupyter/kernels/3d_print_job_preparation
-    javascript                  /Users/nordin/Library/Jupyter/kernels/javascript
-    <newpackage>                /Users/nordin/Library/Jupyter/kernels/mypackage
-    python3                     /Users/nordin/Library/Jupyter/kernels/python3
-    python2                     /usr/local/share/jupyter/kernels/python2
-
-#### Start jupyterlab (regular)
-
-    # Start jupyterlab
-    (<text for prompt>)
-    $ jupyter lab
-
-#### Start jupyterlab (background)
-
-    # Start jupyterlab in the background so the terminal remains free to use
-    (<text for prompt>)
-    $ nohup jupyter lab &
-
-    # Kill jupyterlab that's running in the background
-    $ jupyter notebook list
-        Currently running servers:
-        http://localhost:8888/?token=blah :: /Users/nordin/Documents/Projects/Python/190709_starter_project_files
-    # Note the port jupyter is running on (8888). Use this to find the PID of the jupyter process
-    $ lsof -n -i4TCP:8888
-        COMMAND     PID   USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME
-        python3.7 38870 nordin    8u  IPv4 0xb27f89b37e23f69b      0t0  TCP 127.0.0.1:ddi-tcp-1 (LISTEN)
-    # Now kill the jupyter process
-    $ kill 38870
-
-### Remove jupyter kernel
-
-    $ jupyter kernelspec uninstall <kernel_to_uninstall>
-
-### Use TOC with jupyterlab
-
-    (<text for prompt>)
-    $ jupyter labextension install @jupyterlab/toc
-
-### Use jupyter_contrib_nbextensions with jupyter notebooks
-
-    Only works with `jupyter notebook`, not 'jupyter lab`
-
-    (<text for prompt>)
-    $ pip install jupyter_contrib_nbextensions
-    (<text for prompt>)
-    $ jupyter contrib nbextension install --sys-prefix
-
-In the last command, `--sys-prefix` is the critical part to get the extensions installed locally in the virtual environment.
+See https://github.com/gregnordin/python_setup_macbook.
 
 ## Windows - ??
 
