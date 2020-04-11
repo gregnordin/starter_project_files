@@ -5,7 +5,7 @@ Starter project suitable for how I tend to develop project code.
 ## Features:
 
 - Use built in `venv` to create virtual environment in `.venv` directory.
-- Add `black` and `pylint` to required packages in `setup.py`.
+- Add `black` and `pylint` to required packages in `setup.py` (see [How to create a setup file for your project](https://www.pythonforthelab.com/blog/how-create-setup-file-your-project/) for a good explanation of the how and why of using `setup.py`).
 - Add my usually needed packages (`numpy`, `matplotlib`, `jupyterlab`, `ipykernel`) to `setup.py`
 - Use `pip install -e .` after virtual environment is set up so that local package being developed is in develop mode and can be dynamically changed without having to re-install. This command also installs all required packages spectified in `setup.py` (rather than using a `requirements.txt` file).
 - Add `.vscode/settings.json` and set to (1) use `black` on file save and (2) use the local virtual environment.
